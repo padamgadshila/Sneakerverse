@@ -875,17 +875,26 @@ nav .fa-bars {
     }
 
     .bannerInfo {
-        flex-basis: 50%;
+        flex-basis: 60%;
     }
 
     .bannerImage {
         flex-basis: 40%;
     }
-.bannerImage img:hover {
-    width: 400px;
-}
+
     .bannerImage img {
         width: 200px;
+    }
+
+    .bannerImage img:hover {
+        width: 300px;
+    }
+
+    .bannerImage img:hover~.imagePop {
+        background: red;
+        width: 250px;
+        height: 250px;
+        opacity: 1;
     }
 
     .bannerProductsName {
