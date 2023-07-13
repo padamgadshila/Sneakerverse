@@ -881,7 +881,9 @@ nav .fa-bars {
     .bannerImage {
         flex-basis: 40%;
     }
-
+.bannerImage img:hover {
+    width: 400px;
+}
     .bannerImage img {
         width: 200px;
     }
