@@ -16,6 +16,7 @@
 nav {
     position: fixed;
     top: 0;
+    left: 0;
     height: 80px;
     width: 100%;
     background: var(--dark-grey);
@@ -24,6 +25,10 @@ nav {
     justify-content: space-between;
     padding: 0 50px 0 100px;
     z-index: 99;
+}
+
+nav .fa-bars {
+    display: none;
 }
 
 .logo h1,
@@ -46,7 +51,16 @@ nav {
     list-style: none;
 }
 
-.nav-items li {
+.nav-items span {
+    display: none;
+}
+
+.hide {
+    display: none;
+}
+
+.nav-items li,
+nav .fa-bars {
     color: #fff;
     padding: 10px;
     margin: 0 25px;
@@ -56,7 +70,7 @@ nav {
     transition: all .4s;
 }
 
-.nav-items li:hover {
+.nav-items li:hover nav .fa-bars:hover {
     background: #fff;
     color: var(--dark-grey);
 }
@@ -485,6 +499,10 @@ nav {
     opacity: 1;
 }
 
+.productName {
+    padding: 10px;
+}
+
 .productName h1 {
     font-size: 20px;
     text-align: center;
@@ -793,3 +811,177 @@ nav {
 }
 
 /* Copyright end */
+
+/* Responsive start */
+@media (max-width:400px) {
+
+    nav {
+        padding: 0 0 0 20px;
+    }
+
+    nav .fa-bars {
+        display: block;
+    }
+
+    .logo h1,
+    .logo span {
+        font-size: 1.5rem;
+    }
+
+    .nav-items {
+        position: absolute;
+        top: 80px;
+        right: -100%;
+        height: 100vh;
+        width: 100%;
+        background: var(--dark-grey);
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .4s;
+    }
+
+    .nav-items span {
+        display: block;
+    }
+
+    .hide {
+        display: block;
+    }
+
+    .nav-items.active {
+        right: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-items li {
+        margin-top: 20px;
+    }
+
+    .nav-items span {
+        margin-top: -20px;
+        margin-left: 40px;
+    }
+
+    .dott,
+    .dott1 {
+        display: none;
+    }
+
+    .slide {
+        flex-direction: column-reverse;
+    }
+
+    .bannerInfo {
+        flex-basis: 50%;
+    }
+
+    .bannerImage {
+        flex-basis: 40%;
+    }
+
+    .bannerImage img {
+        width: 200px;
+    }
+
+    .bannerProductsName {
+        padding: 10px;
+        width: 100%;
+        left: 50%;
+    }
+
+    .bannerProductsName h1 {
+        font-size: 29px;
+        word-wrap: break-word;
+    }
+
+    .bannerProductsName button {
+        padding: 10px 15px;
+        margin-left: 10px;
+    }
+
+    .slideControls {
+        bottom: -10px;
+    }
+
+    .productsList {
+        min-width: 340px;
+    }
+
+    .aboutCont {
+        height: auto;
+    }
+
+    .features {
+        flex-direction: column;
+        padding: 0 100px;
+    }
+
+    .newsLetter h1 {
+        font-size: 1.5rem;
+        top: 10%;
+    }
+
+    .emailCont {
+        height: 350px;
+    }
+
+    .emailInput {
+        padding: 10px;
+        top: 30%;
+        height: 100px;
+        justify-content: unset;
+        flex-wrap: wrap;
+    }
+
+    .emailInput i {
+        height: 38px;
+        width: 60px;
+        font-size: 16px;
+        flex-basis: 10%;
+    }
+
+    .emailInput input {
+        flex-basis: 90%;
+        height: 40px;
+        width: 50px;
+        font-size: 16px;
+    }
+
+    .emailInput button {
+        padding: 10px 20px;
+        margin-top: 20px;
+        margin-left: 30%;
+    }
+
+    .footerCont {
+        flex-direction: column;
+    }
+
+    .footer li {
+        font-size: 18px;
+    }
+
+    .qrcode img:first-child {
+        width: 170px;
+    }
+
+    .qrcode img:last-child {
+        width: 100px;
+    }
+
+    .media {
+        display: none;
+    }
+
+    .copyRight {
+        height: 80px;
+        position: absolute;
+        bottom: 0;
+        display: none;
+    }
+}
+
+/* Responsive end */
