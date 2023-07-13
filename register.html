@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Create Account</title>
+        <link rel="stylesheet" href="./css/form.css">
+        <link rel="stylesheet" href="./fontawesome-free-6.4.0-web/css/all.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+    </head>
+
+    <body>
+        <div class="FormContainer">
+            <header>
+                <h1>Create Account</h1>
+            </header>
+            <form action="/Accounts/Create" method="post">
+                <div class="InputContainer">
+                    <input type="email" name="email" required>
+                    <label>Email Address</label>
+                    <div class="line" style="width: 123px;"></div>
+                </div>
+
+                <div class="InputContainer">
+                    <input type="password" name="password" id="pass1" required>
+                    <label>Create password</label>
+                    <div class="line" style="width: 150px;"></div>
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="InputContainer">
+                    <input type="password" name="cpassword" id="pass2" required>
+                    <label>Confrim password</label>
+                    <div class="line"></div>
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="ButttonContainer">
+                    <button type="submit">Create Account</button>
+                </div>
+                <div class="Links">
+                    <span>Already a member? <a href="./login.html">Login now</a></span>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            let input = document.querySelectorAll('input');
+            let error = document.querySelector('.ErrorBox');
+            input.forEach(inpt => {
+                inpt.addEventListener('keyup', () => {
+                    if (inpt.name == "password" || inpt.name == "email" || inpt.name == "cpassword") {
+                        error.style.display = "none";
+                    }
+                });
+            });
+
+            let eyeBtn = document.querySelectorAll('.InputContainer i');
+            let inputtag = document.querySelectorAll('.InputContainer input[type="password"]');
+
+            eyeBtn[0].addEventListener('click', () => {
+                eyeBtn[0].classList.toggle('fa-eye');
+                eyeBtn[0].classList.toggle('fa-eye-slash');
+                if (inputtag[0].type === 'password') {
+                    inputtag[0].setAttribute('type', 'text');
+                } else {
+                    inputtag[0].setAttribute('type', 'password');
+                }
+            }); eyeBtn[1].addEventListener('click', () => {
+                eyeBtn[1].classList.toggle('fa-eye');
+                eyeBtn[1].classList.toggle('fa-eye-slash');
+                if (inputtag[1].type === 'password') {
+                    inputtag[1].setAttribute('type', 'text');
+                } else {
+                    inputtag[1].setAttribute('type', 'password');
+                }
+            });
+
+            eyeBtn.forEach(eye => {
+                eye.addEventListener('click', () => {
+                    eye.classList.toggle('fa-eye');
+                    eye.classList.toggle('fa-eye-slash');
+                });
+            });
+        </script>
+    </body>
+
+</html>
