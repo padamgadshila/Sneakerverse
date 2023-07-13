@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    outline: none;
+}
+
+:root {
+    --bg-color: #e84a72;
+    --txt-color: #ffffff;
+    --border-color: #ccc;
+    --radius: 5px;
+    --txt-size: 17px;
+    --success: #0abf30;
+    --error: #e24d4c;
+    --error-bg: #ea8e8e;
+    --warning: #e9bd0c;
+    --info: #3498db;
+    --light-txt: #67676a;
+}
+
+body {
+    background: #e2e2e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: Poppins, 'sans-serif';
+}
+
+.FormContainer {
+    background: var(--txt-color);
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    width: 450px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+.FormContainer header {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.NameContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.NameContainer .InputContainer:first-child {
+    margin-right: 10px;
+}
+
+.NameContainer .InputContainer:last-child {
+    margin-left: 10px;
+}
+
+.InputContainer,
+.ButttonContainer {
+    width: 100%;
+    min-height: 70px;
+    margin: 10px 0;
+    position: relative;
+}
+
+.InputContainer label {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    font-size: 16px;
+    pointer-events: none;
+    user-select: none;
+    color: grey;
+    transition: all .4s;
+    z-index: 2;
+}
+
+.InputContainer input::-ms-reveal {
+    display: none;
+}
+
+.InputContainer input {
+    width: 100%;
+    height: 50px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    transition: all .4s;
+    font: var(--txt-size);
+}
+
+.InputContainer i {
+    position: absolute;
+    top: 17px;
+    right: 15px;
+    color: grey;
+    cursor: pointer;
+}
+
+
+.InputContainer input:focus {
+    border: 2px solid var(--bg-color);
+}
+
+.InputContainer input:valid,
+.InputContainer input:focus {
+    border: 2px solid var(--bg-color);
+}
+
+.InputContainer input:valid~label,
+.InputContainer input:focus~label {
+    transform: translateY(-25px);
+    padding: 0 5px;
+    font-weight: 400;
+    color: var(--bg-color);
+}
+
+.InputContainer input:valid~i,
+.InputContainer input:focus~i {
+    color: var(--bg-color);
+}
+
+.InputContainer input:focus~.line,
+.InputContainer input:valid~.line {
+    position: absolute;
+    height: 2px;
+    width: 160px;
+    background: var(--txt-color);
+    top: 0;
+    left: 15px;
+    transition: all .4s;
+    z-index: 1;
+}
+
+.ErrorBox {
+    margin-left: 10px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    font-size: 16px;
+    word-wrap: break-word;
+    color: var(--error);
+}
+
+.ButttonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.ButttonContainer button {
+    padding: 15px 35px;
+    margin-top: 10px;
+    background: var(--bg-color);
+    border: none;
+    color: var(--txt-color);
+    border-radius: var(--radius);
+    font-size: var(--txt-size);
+    font-weight: 500;
+}
+
+.ButttonContainer button:hover {
+    background: #ca4062;
+}
+
+.Links {
+    text-align: center;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.Links a,
+.Links b {
+    color: var(--info);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.Links a:hover,
+.Links b:hover,
+.Links button:hover {
+    text-decoration: underline;
+}
+
+.Links button {
+    border: none;
+    background: none;
+    color: var(--info);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: var(--txt-size);
+}
+
+.OtpCont {
+    position: absolute;
+    top: 15px;
+    left: 45%;
+    background: var(--info);
+    border-radius: var(--radius);
+    padding: 15px 60px;
+    animation: show .5s;
+}
+
+@keyframes show {
+    0% {
+        top: -100px;
+    }
+
+    100% {
+        top: 20px;
+    }
+}
+
+.OtpCont span {
+    color: var(--txt-color);
+}
