@@ -7,9 +7,8 @@
         <title>SneakerVerse</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="./css/new.css">
-         <link rel="icon" href="./img/ic.png" type="image/x-icon">
+        <link rel="icon" href="./img/ic.png" type="image/x-icon">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
-        
     </head>
 
     <body>
@@ -19,11 +18,15 @@
                 <h1>Sneaker<span>Verse.in</span></h1>
             </div>
             <ul class="nav-items">
-                <li class="fas fa-magnifying-glass"></li>
-                <li class="fas fa-heart"></li>
-                <li class="fas fa-cart-shopping"></li>
-                <li class="fas fa-user"></li>
+                <li class="fas fa-magnifying-glass"> <span>Search</span></li>
+                <li class="fas fa-heart"> <span>Wishlist</span></li>
+                <li class="fas fa-cart-shopping"> <span>Cart</span></li>
+                <li class="fas fa-user"> <span>Account</span></li>
+                <li class="fas fa-clipboard hide"> <span>Orders</span></li>
+                <li class="fas fa-circle-question hide"> <span>Help</span></li>
+                <li class="fas fa-right-from-bracket hide"> <span>Logout</span></li>
             </ul>
+            <div class="fas fa-bars"></div>
         </nav>
         <!-- Navigation end -->
 
@@ -80,7 +83,7 @@
             <div class="banners">
                 <div class="dott"></div>
                 <div class="dott1"></div>
-                <input type="radio" name="banner" id="slide1">
+                <input type="radio" name="banner" id="slide1" checked>
                 <input type="radio" name="banner" id="slide2">
                 <input type="radio" name="banner" id="slide3">
                 <div class="slide first">
@@ -837,13 +840,33 @@
         <!-- Copyright end -->
         <script>
             let accountBtn = document.querySelector('.nav-items .fa-user'),
-                accountPop = document.querySelector('.accountPop');
+                accountPop = document.querySelector('.accountPop'),
+                navigationBar = document.querySelector('nav');
 
-            accountBtn.addEventListener('click', () => {
+
+            popAccount = () => {
                 accountPop.classList.toggle('active');
+            }
+
+            window.addEventListener('load', () => {
+                if (navigationBar.clientWidth <= 400) {
+                    accountBtn.removeEventListener('click', popAccount);
+                } else {
+                    accountBtn.addEventListener('click', popAccount);
+                }
             });
+
             window.addEventListener('scroll', () => {
                 accountPop.classList.remove('active');
+            });
+
+
+
+            let menu = document.querySelector('nav .fa-bars');
+            let sideNavigation = document.querySelector('.nav-items');
+            menu.addEventListener('click', () => {
+                sideNavigation.classList.toggle('active');
+                menu.classList.toggle('fa-xmark')
             });
         </script>
     </body>
